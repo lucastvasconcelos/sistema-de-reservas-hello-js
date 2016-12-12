@@ -1,0 +1,14 @@
+<h1> Lista de nomes para reserva. </h1>
+        <form ng-submit="ctl.salvarpessoas()">
+            <fieldset>
+                <label>Nome do Professor:</label><br/>
+                <input name="nome" ng-model="ctl.novo.nomepessoa"/><br/>
+                <input type=submit>
+             </fieldset>
+        </form>
+        <ul>
+            <li ng-repeat="ps in ctl.pessoas">
+              {{ps.idpessoa}} | {{ps.nomepessoa}}         
+            </li>
+        </ul>
+        

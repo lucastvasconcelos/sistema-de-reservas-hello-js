@@ -1,0 +1,16 @@
+<h1> Lista de espaços já reservados. </h1>
+        <form ng-submit="ctl.salvarespacos()">
+            <fieldset>
+                <label>Espaço: </label><br/>
+                <input name="espaco" ng-model = "ctl.novo.nomeespaco"/><br/>
+                <label>Descrição do espaço: </label> <br/>
+                <input name="descricao" ng-model = "ctl.novo.descricaoespaco"/></br>
+                <input type=submit>
+           </fieldset>
+        </form>
+        <ul>
+            <li ng-repeat="es in ctl.espacos">
+               {{es.idespaco}} | {{es.nomeespaco}} | {{es.descricaoespaco}}         
+            </li>
+        </ul>
+        

@@ -1,0 +1,21 @@
+<h1> Reserva de salas e laboratorios. </h1>
+        <form ng-submit="ctl.salvarreserva()">
+            <fieldset>
+                <label>Espaço: </label><br/>
+                <input name="espaco" ng-model = "ctl.novo.nomeespaco"/><br/>
+                <label>Nome do Professor:</label><br/>
+                <input name="nome" ng-model="ctl.novo.nomepessoa"/><br/>
+                <label>Horario de inicio:</label><br/>
+                <input name="horario-inicio" type="datetime" ng-model="ctl.novo.datacomeco"/><br/>
+                <label>Horario de encerramento:</label><br/>
+                <input name="horario-fim" type="datetime" ng-model="ctl.novo.datafim"/><br/>
+                <input type="submit"/>
+            </fieldset>
+        </form>
+        <ul>
+            <li>nome do espaço | nome do ocupante responsavel | hora inicio | hora fim</li>
+            <li ng-repeat="rs in ctl.reservas">
+                {{rs.nomeespaco}} | {{rs.nomepessoa}} | {{rs.datacomeco | date:"yyyy/MM/dd hh:mm"}} | {{rs.datafim | date:"yyyy/MM/dd hh:mm"}}                
+            </li>
+        </ul>
+        
