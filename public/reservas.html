@@ -13,18 +13,25 @@
             </fieldset>
         </form>
         <form ng-submit="ctl.excluirreserva()">
-            <fieldset>            
+            <fieldset>
                 <label> ID - RESERVA:  </label>
                 <input name="idreserva" ng-model ="ctl.novo.idreserva">
                 <button type=submit>Deletar Reserva</button>
             </fieldset>
         </form>
         <table>
+            <tr>
+                <td> ID - RESERVA </td>
+                <td> ESPAÇO - RESERVA</td>
+                <td> NOME - RESERVA</td>
+                <td> DATA/HORARIO - INICIO</td>
+                <td> DATA/HORARIO - FIM</td>
+            </tr>
             <tr ng-repeat="rs in ctl.reservas">
-               <td>{{rs.idreserva}}</td> 
-               <td>{{rs.nomeespaco}} </td> 
+               <td>{{rs.idreserva}}</td>
+               <td>{{rs.nomeespaco}} </td>
                <td> {{rs.nomepessoa}} </td>
-               <td> {{rs.datacomeco | date:"yyyy/MM/dd hh:mm"}} </td> 
-               <td>{{rs.datafim | date:"yyyy/MM/dd hh:mm"}} </td>                
+               <td> {{rs.datacomeco | date:"yyyy/MM/dd hh:mm"}} </td>
+               <td>{{rs.datafim | date:"yyyy/MM/dd hh:mm"}} </td>
             </tr>
         <table>

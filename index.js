@@ -31,7 +31,7 @@ app.post("/espaco", (req,res) => {
 app.post("/pessoa", (req,res) => {
   var novo = req.body;
   knex("pessoas").insert(novo,"idpessoa").then((ret) => {
-    novo.idparticipante=ret[0];
+    novo.idpessoa=ret[0];
     res.send(novo);
   }).catch((err) => {
     res.status(500).send(err);
@@ -42,12 +42,17 @@ app.post("/pessoa", (req,res) => {
 app.post("/deletar_reserva",(req,res) => {
   var novo = req.body;
   console.log(req.body);
-  knex("reserva").where('idreserva',novo.idreserva).del();
-})
+  knex("reserva").where('idreserva',novo.idreserva).del().then((ret) => {
+    novo = [];
+    res.send(novo);
+  }).catch((err) => {
+    res.status(500).send(err);
+  });
+});
 
 
 app.get("/reservas",(req,res) => {
-  knex("reserva").select().then((ret) => res.send(ret));  
+  knex("reserva").select().then((ret) => res.send(ret));
 });
 
 

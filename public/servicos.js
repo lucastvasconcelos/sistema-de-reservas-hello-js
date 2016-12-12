@@ -10,7 +10,7 @@ angular.module("angular-reserva").service("reservaservice", function ($http){
 
 angular.module("angular-reserva").service("espacosservice",function($http){
     this.buscarespacos = () => $http.get("espacos");
-    
+
     this.salvarespacos = (es) => $http.post("espaco",es);
 });
 

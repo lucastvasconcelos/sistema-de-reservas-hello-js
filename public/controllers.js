@@ -15,6 +15,7 @@ angular.module("angular-reserva").controller("controlador-reserva",function(rese
         console.log(this.novo.idreserva);
         reservaservice.excluirreserva(this.novo).then((ret) => {
             alert("reserva "+ ret.data.idreserva + " excluida");
+            this.listar();
             this.novo={};
         });
     };
@@ -26,11 +27,11 @@ angular.module("angular-reserva").controller("espacoscontroller",function(espaco
         this.espacos = ret.data;
     });
 
-    this.listar();  
+    this.listar();
 
     this.salvarespacos = () => {
         espacosservice.salvarespacos(this.novo).then((ret) => {
-            alert("espaco com o id " + ret.data.idespaco);
+            alert("Espaço adicionado com o id " + ret.data.idespaco);
             this.listar();
             this.novo = {};
         });
@@ -47,7 +48,7 @@ angular.module("angular-reserva").controller("pessoascontroller",function(pessoa
 
     this.salvarpessoas = () => {
         pessoasservice.salvarpessoas(this.novo).then((ret) => {
-            alert("espaco com o id " + ret.data.idpessoa);
+            alert("Pessoa adicionada com o id " + ret.data.idpessoa);
             this.listar();
             this.novo = {};
         });
