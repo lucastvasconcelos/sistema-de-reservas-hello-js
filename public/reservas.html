@@ -9,13 +9,22 @@
                 <input name="horario-inicio" type="datetime" ng-model="ctl.novo.datacomeco"/><br/>
                 <label>Horario de encerramento:</label><br/>
                 <input name="horario-fim" type="datetime" ng-model="ctl.novo.datafim"/><br/>
-                <input type="submit"/>
+                <input type="submit"/></br>
             </fieldset>
         </form>
-        <ul>
-            <li>nome do espaço | nome do ocupante responsavel | hora inicio | hora fim</li>
-            <li ng-repeat="rs in ctl.reservas">
-                {{rs.nomeespaco}} | {{rs.nomepessoa}} | {{rs.datacomeco | date:"yyyy/MM/dd hh:mm"}} | {{rs.datafim | date:"yyyy/MM/dd hh:mm"}}                
-            </li>
-        </ul>
-        
+        <form ng-submit="ctl.excluirreserva()">
+            <fieldset>            
+                <label> ID - RESERVA:  </label>
+                <input name="idreserva" ng-model ="ctl.novo.idreserva">
+                <button type=submit>Deletar Reserva</button>
+            </fieldset>
+        </form>
+        <table>
+            <tr ng-repeat="rs in ctl.reservas">
+               <td>{{rs.idreserva}}</td> 
+               <td>{{rs.nomeespaco}} </td> 
+               <td> {{rs.nomepessoa}} </td>
+               <td> {{rs.datacomeco | date:"yyyy/MM/dd hh:mm"}} </td> 
+               <td>{{rs.datafim | date:"yyyy/MM/dd hh:mm"}} </td>                
+            </tr>
+        <table>

@@ -6,9 +6,16 @@ angular.module("angular-reserva").controller("controlador-reserva",function(rese
     this.listar();
     this.salvarreserva = () => {
         reservaservice.salvarreserva(this.novo).then((ret) => {
-            alert("evento salvo com o id" + ret.data.idreserva);
+            alert("reserva salva com o id" + ret.data.idreserva);
             this.listar();
             this.novo = {};
+        });
+    };
+    this.excluirreserva = () => {
+        console.log(this.novo.idreserva);
+        reservaservice.excluirreserva(this.novo).then((ret) => {
+            alert("reserva "+ ret.data.idreserva + " excluida");
+            this.novo={};
         });
     };
 });

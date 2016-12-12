@@ -10,7 +10,6 @@ app.use(bodyParser.urlencoded({extended:true}));
 
 app.use(express.static("public"));
 
-
 app.get("/espacos", (req,res) => {
   knex("espaco").select().then((ret) => res.send(ret));
 });
@@ -38,6 +37,13 @@ app.post("/pessoa", (req,res) => {
     res.status(500).send(err);
   });
 });
+
+
+app.post("/deletar_reserva",(req,res) => {
+  var novo = req.body;
+  console.log(req.body);
+  knex("reserva").where('idreserva',novo.idreserva).del();
+})
 
 
 app.get("/reservas",(req,res) => {

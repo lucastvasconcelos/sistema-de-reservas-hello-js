@@ -4,6 +4,7 @@ angular.module("angular-reserva").service("reservaservice", function ($http){
 
   this.salvarreserva= (rs) => $http.post("reserva",rs);
 
+  this.excluirreserva = (rs) => $http.post("deletar_reserva",rs);
 });
 
 
